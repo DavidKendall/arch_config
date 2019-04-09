@@ -1,0 +1,89 @@
+! Help xterm to play nicely with tmux
+xterm*termName: xterm-256color
+
+! Make the Powerline font available to xterm (for vim status line)
+xterm*faceName: DejaVuSansMonoForPowerline Nerd Font
+xterm*faceSize: 9
+xterm*renderFont: true
+
+! Some useful key translations
+xterm*VT100.Translations: #override \
+    Shift <KeyPress> Insert: insert-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>C:    copy-selection(CLIPBOARD) \n\
+    Ctrl <Btn1Up>: exec-formatted("xdg-open '%t'", PRIMARY) \n\
+    Ctrl <Key> minus: smaller-vt-font() \n\
+    Ctrl <Key> plus: larger-vt-font() \n\
+    Ctrl <Key> 0: set-vt-font(d)
+
+! A nice colour scheme for xterm
+! Base16 OneDark
+! Scheme: Lalit Magant (http://github.com/tilal6991) (Modified DK)
+
+! Black
+ #define base00 #282c34
+! Dark Grey
+ #define base01 #353b45
+! Royal Blue
+ #define base02 #3e4451
+! Comment Grey
+ #define base03 #5c6370
+! Gutter Grey 
+ #define base04 #636d83
+! White
+ #define base05 #abb2bf
+! Light Grey
+ #define base06 #b6bdca
+! ? Lighter Grey
+ #define base07 #c8ccd4
+! Pink
+ #define base08 #e06c75
+! Brown
+ #define base09 #d19a66
+! Light Brown
+ #define base0A #e5c07b
+! Pale Green 
+ #define base0B #98c379
+! Light Blue
+ #define base0C #56b6c2
+! Blue 
+ #define base0D #61afef
+! Purple (Magenta)
+ #define base0E #c678dd
+! Dark Red 
+ #define base0F #be5046 
+
+! Original theme just had
+! *.foreground etc. but this
+! did not seem to have any effect on
+! my xterm
+ xterm*foreground:   base05
+ xterm*background:   base00
+ xterm*cursorColor:  base05
+
+ *.color0:       base00
+ *.color1:       base08
+ *.color2:       base0B
+ *.color3:       base0A
+ *.color4:       base0D
+ *.color5:       base0E
+ *.color6:       base0C
+ *.color7:       base05
+
+ *.color8:       base03
+ *.color9:       base08
+ *.color10:      base0B
+ *.color11:      base09
+ *.color12:      base0D
+ *.color13:      base0E
+ *.color14:      base02
+ *.color15:      base07
+
+! ! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! ! use 'shell' template to set these if necessary
+ *.color16:      base09
+ *.color17:      base0F
+ *.color18:      base01
+ *.color19:      base02
+ *.color20:      base04
+ *.color21:      base06
